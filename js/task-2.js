@@ -14,12 +14,13 @@ class Storage{
   }
   
   removeItem(itemToRemove) {
-    for(const item of this.#items) {
-      if(item == itemToRemove) {
-      this.#items.splice(      this.#items.indexOf(item),this.#items.indexOf(item));
-      }
-    }
-  return this.#items;}
+  const index = this.#items.indexOf(itemToRemove);
+  if (index !== -1) {
+    this.#items.splice(index, 1); 
+  }
+  return this.#items;
+}
+
 }
 
 const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
